@@ -1,0 +1,74 @@
+{
+  "Table": {
+    "TableName": "user_tokens",
+    "keySchema": [
+      {
+        "AttributeName": "user_id",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "verification_code",
+        "KeyType": "HASH"
+      }
+    ],
+
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "user_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "verification_token",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "verification_code",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "reset_password_code",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "created_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "updated_at",
+        "AttributeType": "S"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "verification",
+        "KeySchema": [
+          {
+            "AttributeName": "verification_code",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      },
+      {
+        "IndexName": "reset_password",
+        "KeySchema": [
+          {
+            "AttributeName": "reset_password_code",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  }
+}

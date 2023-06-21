@@ -1,0 +1,61 @@
+{
+  "Table": {
+    "TableName": "friend_requests",
+    "keySchema": [
+      {
+        "AttributeName": "user_id",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "request_id",
+        "KeyType": "HASH"
+      }
+    ],
+
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "user_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "request_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "status",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "created_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "updated_at",
+        "AttributeType": "S"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "requestID",
+        "KeySchema": [
+          {
+            "AttributeName": "request_id",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  }
+}

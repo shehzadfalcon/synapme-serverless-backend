@@ -1,0 +1,94 @@
+{
+  "Table": {
+    "TableName": "users",
+    "keySchema": [
+      {
+        "AttributeName": "user_id",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "email",
+        "KeyType": "HASH"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "user_email",
+        "KeySchema": [
+          {
+            "AttributeName": "email",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      }
+    ],
+
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "user_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "email",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "first_name",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "last_name",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "user_name",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "date_of_birth",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "gender",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "background",
+        "AttributeType": "M"
+      },
+      {
+        "AttributeName": "totalVotes",
+        "AttributeType": "N"
+      },
+      {
+        "AttributeName": "verified",
+        "AttributeType": "BOOL"
+      },
+      {
+        "AttributeName": "password",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "profile_image_url",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "created_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "updated_at",
+        "AttributeType": "S"
+      }
+    ],
+
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  }
+}

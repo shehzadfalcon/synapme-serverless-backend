@@ -1,0 +1,58 @@
+{
+  "Table": {
+    "TableName": "notification_subscriptions",
+    "keySchema": [
+      {
+        "AttributeName": "endpoint",
+        "KeyType": "HASH"
+      }
+    ],
+
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "user_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "expirationTime",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "keys",
+        "AttributeType": "M"
+      },
+      {
+        "AttributeName": "endpoint",
+        "AttributeType": "S"
+      },
+
+      {
+        "AttributeName": "created_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "updated_at",
+        "AttributeType": "S"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "userID",
+        "KeySchema": [
+          {
+            "AttributeName": "user_id",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  }
+}

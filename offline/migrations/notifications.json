@@ -1,0 +1,79 @@
+{
+  "Table": {
+    "TableName": "notifications",
+    "keySchema": [
+      {
+        "AttributeName": "id",
+        "KeyType": "HASH"
+      }
+    ],
+
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "content",
+        "AttributeType": "L"
+      },
+      {
+        "AttributeName": "title",
+        "AttributeType": "M"
+      },
+      {
+        "AttributeName": "sender_id",
+        "AttributeType": "S"
+      },
+
+      {
+        "AttributeName": "receivers_id",
+        "AttributeType": "L"
+      },
+      {
+        "AttributeName": "updated_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "created_at",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "status",
+        "AttributeType": "S"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "senderID",
+        "KeySchema": [
+          {
+            "AttributeName": "sender_id",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      },
+      {
+        "IndexName": "receiversID",
+        "KeySchema": [
+          {
+            "AttributeName": "receivers_id",
+            "KeyType": "HASH"
+          }
+        ],
+
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      }
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  }
+}

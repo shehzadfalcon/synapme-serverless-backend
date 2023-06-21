@@ -1,0 +1,18 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# local db
+dev-db-memory/
+
+# esbuild directories
+.esbuild
+
+.vscode
+.webpack
+
+# env
+.env

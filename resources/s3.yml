@@ -1,0 +1,35 @@
+# Resources:
+#   Bucket:
+#     DeletionPolicy: Retain
+#     Type: AWS::S3::Bucket
+#     Properties:
+#       BucketName: synapme
+#       AccessControl: PublicRead
+#       PublicAccessBlockConfiguration:
+#         BlockPublicAcls: false
+#         BlockPublicPolicy: false
+#         IgnorePublicAcls: false
+#         RestrictPublicBuckets: false
+#       CorsConfiguration:
+#         CorsRules:
+#           - AllowedOrigins:
+#               - '*'
+#             AllowedMethods:
+#               - POST
+#               - GET
+#               - PUT
+#               - DELETE
+#               - HEAD
+#             AllowedHeaders:
+#               - '*'
+
+# Outputs:
+#   BucketName:
+#     Value: !Ref Bucket
+#     Export:
+#       Name: BucketName
+
+#   BucketArn:
+#     Value: !GetAtt Bucket.Arn
+#     Export:
+#       Name: BucketArn
