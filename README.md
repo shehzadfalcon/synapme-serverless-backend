@@ -1,5 +1,6 @@
 
-# Synapme backend 
+# serverless-aws-nodejs-typescript
+
 
 ## Run Locally
 
