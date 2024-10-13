@@ -114,11 +114,7 @@ Push  changes
   git push
 ```
 
-Create a pull request
-
-```bash
-  on github repo create a pull to staging
-```
+Create a pull request on github repo create a pull to staging
 
 ## Deployment
 
